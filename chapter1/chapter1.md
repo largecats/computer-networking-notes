@@ -62,24 +62,24 @@
 #### Home access
 
 **DSL (digital subscriber line).** Internet access from the same telco (telephone company) that provides wired local phone access.
-- Uses existing telephone line (twisted-pair copper wire)
-- Frequency-division multiplexing: Uses different frequency than telephone signal channel to transmit digital signals (a telephone call and an internet connection can share the DSL link at the same time)
+- Uses existing telephone line (twisted-pair copper wire).
+- Frequency-division multiplexing: Uses different frequency than telephone signal channel to transmit digital signals (a telephone call and an internet connection can share the DSL link at the same time).
 
-**Cable.** Internet access from the same cable TV company that provides cable TV
-- Uses Optical fiber, coaxial cable
-- Uses cable modem
-- Shared broadcast medium
+**Cable.** Internet access from the same cable TV company that provides cable TV.
+- Uses Optical fiber, coaxial cable.
+- Uses cable modem.
+- Shared broadcast medium.
 
-**FTTH (fiber to the home).** Optical fiber path from the central office (CO) directly to the home
-- Optical distribution from CO to home
-- Direct fiber: One fiber from CO for each home
-- Split fiber: Many homes share fiber from CO, which then splits into different fiber
+**FTTH (fiber to the home).** Optical fiber path from the central office (CO) directly to the home.
+- Optical distribution from CO to home.
+- Direct fiber: One fiber from CO for each home.
+- Split fiber: Many homes share fiber from CO, which then splits into different fiber.
     - Active optical network (switched Ethernet)
     - Passive optical network
 
-**Dial-Up.** A home modem connects to ISP modem over a phone line
-- Same model as DSL
-- Very slow
+**Dial-Up.** A home modem connects to ISP modem over a phone line.
+- Same model as DSL.
+- Very slow.
 
 **Satellite link.**
 
