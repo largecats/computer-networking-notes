@@ -95,4 +95,56 @@
 
 **WiFi.** A Wireless LAN access based on certain IEEE technology.
 
+#### Wide-Area Wireless Access
 
+**3G/4G.** Third/fourth-generation packet-switched wide-area wireless access at > 1Mbps.
+
+**LTE.** Long-term evolution, over 10Mbps.
+
+### Physical Media
+
+**Guided media.** Bit sent by propagating electromagnetic waves or optical pulses across a solid medium.
+- Optic fiber
+- Copper wire
+- Coaxial cable
+
+**Unguided media.** Bit sent by waves propagating in the atmosphere and outer space.
+- Wireless LAN
+- Digital satellite channel
+
+| Meida                    | Composition                      | Usage                 |
+|--------------------------|----------------------------------|-----------------------|
+| Twisted-pair copper wire |Two copper wires twisted to reduce electrical interference from other wires                                | Telephone network, LAN |
+| Coaxial cable            | Two concentric copper conductors | Cable TV              |
+Fiber optics                          |                    Conduct light pulses, each pulse is a bit|                       
+| Terrestrial radio channels | Electromagnetic spectrum | Short distance: Wireless keyboards, local-area: LAN, Wide-area: Cellular access 
+| Satellite radio channels | Links earth-based microwave ground stations | Geostationary satellites, Low-earth orbiting satellites |
+
+## Network Core
+
+### Packet Switching
+
+**Store-and-forward transmission.** The packet switch must receive the entire packet before it starts transmitting.
+
+**Output queue.** A packet switch link’s output buffer which stores packets that the router is about to send into that link.
+
+**Queuing delay.** Time a packet spends waiting in the output buffer before being transmitted.
+
+**Packet loss.** When an output queue is full, the arriving packet or one of the already-queued packet would be dropped.
+
+**IP address.** An end system’s address in the internet.
+$
+- Included in the packet’s header.
+- Hierarchical, like postal address.
+
+**Forwarding table.** Router maps destination addresses to its outbound links.
+- Set by routing protocols automatically.
+
+### Circuit Switching
+
+Need to reserve resources for communication.
+- Telephone networks
+
+**Frequency-division multiplexing (FDM).** TBD
+
+**Time-division multiplexing (TDM).** TBD
