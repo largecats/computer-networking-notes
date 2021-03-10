@@ -144,7 +144,53 @@ $
 
 Need to reserve resources for communication.
 - Telephone networks
+- Wasteful, but more stable
 
-**Frequency-division multiplexing (FDM).** TBD
+**Frequency-division multiplexing (FDM).** Frequency spectrum of a link is divided up among circuits. Each circuit gets a frequency band.
 
-**Time-division multiplexing (TDM).** TBD
+**Time-division multiplexing (TDM).** Time is divided into revolving frames of fixed duration. Each frame is divided into fixed number of slots. Each circuit gets a time slot in each frame.
+- E.g., 8000 frames/second, each slot has 8 bits, then transmission rate is 8000*8=64kbps.
+
+## Network of Networks
+
+**Access ISP.** Connect end systems into the Internet.
+- Wired or wireless
+- DSL, cable, FTTH, Wi-Fi, cellular.
+- Telephone/cable company, university, company
+
+**Points of presence.** A group of routers in the provider’s network where customer ISPs can connect into the provider ISP.
+
+**Multi-home.** One access ISP connects with multiple regional/tier 1 ISPs.
+
+**Peer.** A pair of nearby ISPs at the same level of hierarchy directly connect their networks.
+
+**Internet Exchange Point (IXP).** A meeting point where multiple ISPs can peer together.
+
+**Content-provider networks.** Like Google.
+- May have own private networks.
+
+### Packet-Switched Network
+
+#### Delay
+
+**Nodal processing delay.** Time required to examine the packet’s header and determine where to direct the packet.
+- Microseconds
+
+**Queuing delay.** Time the packet spends waiting to be transmitted onto the link.
+- Related to the traffic arriving at the queue.
+
+**Transmission delay.** Time required to push all the packet’s bits into the link.
+- Number of bits in packet / link transmission rate.
+- Microseconds to milliseconds.
+
+**Propagation delay.** Time required to propagate from the beginning of the link to the next router.
+- Depends on the link’s physical medium.
+- Distance between the two routers / propagation speed (close to the speed of light).
+- Milliseconds.
+
+
+#### Packet loss
+
+#### Throughput
+
+
