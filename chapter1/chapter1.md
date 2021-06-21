@@ -178,6 +178,7 @@ Need to reserve resources for communication.
 
 **Queuing delay.** Time the packet spends waiting to be transmitted onto the link.
 - Related to the traffic arriving at the queue.
+- Can vary from packet to packet. Usually characterized statistically, e.g., average queuing delay.
 
 **Transmission delay.** Time required to push all the packet’s bits into the link.
 - Number of bits in packet / link transmission rate.
