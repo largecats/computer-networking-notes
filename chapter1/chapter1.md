@@ -59,7 +59,7 @@
 
 **Access networks.** Network that physically connects an end system to the first router (edge router) on a path from the end system to any other distant end system.
 
-#### Home access
+#### Home Access
 
 **DSL (digital subscriber line).** Internet access from the same telco (telephone company) that provides wired local phone access.
 - Uses existing telephone line (twisted-pair copper wire).
@@ -180,6 +180,17 @@ Need to reserve resources for communication.
 - Related to the traffic arriving at the queue.
 - Can vary from packet to packet. Usually characterized statistically, e.g., average queuing delay.
 
+**Traffic intensity.** If $a$ is the average rate at which packets arrive at queue (packets/sec), $R$ is transmission rate (bits/sec), and all packets have $L$ bits, then $La/R$ , ratio between the average rate at which bits arrive at the queue and the transmission rate, is the traffic intensity.
+
+* If $La/R>1$, queue grows.
+* If $La/R\leq 1$, queuing delay depends on whether traffic comes in bursts or is spread out evenly. 
+  * If $N$ packets arrive simultaneously every $(L/R)N$ seconds, then the average queuing delay is $0 + \frac{L}{R} + \frac{2L}{R} + \cdots + \frac{(n-1)L}{R} = \frac{n(n-1)}{2}\frac{L}{R}$ seconds.
+
+<div style="text-align: center"><img src="./images/average_queuing_delay_vs_traffic_intensity.png" width="600px" /></div>
+<div align="center">
+<sup></sup>
+</div>
+
 **Transmission delay.** Time required to push all the packet’s bits into the link.
 - Number of bits in packet / link transmission rate.
 - Microseconds to milliseconds.
@@ -189,9 +200,30 @@ Need to reserve resources for communication.
 - Distance between the two routers / propagation speed (close to the speed of light).
 - Milliseconds.
 
+**Media packetization delay.** In Voice-over-IP (VoIP) applications, the time the sending side takes to fill a packet with digitized speech before passing it to the internet.
 
-#### Packet loss
+* Impacts the quality of VoIP call.
+
+#### Packet Loss
+
+If a packet arrives at a full queue, it will be dropped by the router.
+
+Node performance = delay + packet loss.
 
 #### Throughput
 
+Suppose Host A sends a large file consisting of $F$ bits to Host B over $T$ seconds.
+
+**Instantaneous throughput.** Rate (bits/sec) at which Host B is receiving the file at any instant of time.
+
+**Average throughput.** $F/T$ bits/sec.
+
+Suppose a client connects to a server via an $N$-link (linear) network ,the throughput is $\min{R_1, R_2, \ldots, R_N}$, i.e., transmission rate of the bottleneck link.
+
+<div style="text-align: center"><img src="./images/client_server_n_link.png" width="600px" /></div>
+<div align="center">
+<sup></sup>
+</div>
+
+Constraining factor for throughput is access network.
 
