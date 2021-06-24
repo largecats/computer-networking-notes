@@ -20,6 +20,7 @@
 - Header: Bytes added to each segment containing source/destination info.
 
 **Packet switch.** Takes a packet from one of its incoming communication links and forwards to one of its outgoing links.
+
 - Routers: Used in network core.
 - Link-layer switches: Used in access networks.
 
@@ -226,4 +227,53 @@ Suppose a client connects to a server via an $N$-link (linear) network ,the thro
 </div>
 
 Constraining factor for throughput is access network.
+
+Throughput depends on:
+
+1. Minimum transmission rate among all links in the path.
+2. Traffic.
+
+## Protocol Layers
+
+<div style="text-align: center"><img src="./images/airline_layer.png" width="600px" /></div>
+<div align="center">
+<sup></sup>
+</div>
+
+Each layer provides service by 
+
+1. Performing actions within that layer, and
+2. Using services of the layer directly below it.
+
+**Protocol layering.** Each protocol belongs to a layer.
+
+* A layer may be implemented in software (application-layer, transport-layer) or hardware, or both (network-layer).
+
+**Service model.** Services a layer offered to the layer above.
+
+**Internet protocol stack.** Physical, link, network, transport, application layers.
+
+<div style="text-align: center"><img src="./images/five-layer_protocol_stack.png" width="150px" /></div>
+<div align="center">
+<sup></sup>
+</div>
+
+### Application Layer
+
+* Network applications
+* Application protocols
+  * HTTP for web document request and transfer
+  * SMTP for email transfer
+  * FTP for file transfer
+  * DNS (domain name system) for translating human readable internet address to 32-bit network address
+
+**Message.** Packet of information exchanged between two end systems using the application-layer protocol.
+
+### Transport Layer
+
+Transports application-layer messages between application endpoints.
+
+* Transport protocols
+  * TCP
+  * UDP
 
