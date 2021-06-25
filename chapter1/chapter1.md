@@ -261,7 +261,11 @@ Each layer provides service by
 | ----------- | ------------------------------------------------------------ | ------------------------------------------------------------ | -------- |
 | Application | Network application endpoints.                               | HTTP: Web document request and transfer<br>SMTP: Email transfer<br>FTP: File transfer<br>DNS (domain name system): Translate human readable internet address to 32-bit network address | Message  |
 | Transport   | Transports application-layer messages between application endpoints. | TCP (transmission control): Connection-oriented<br> * Guaranteed delivery of application-layer messages<br> * Flow control (sender/receiver speed matching)<br> * Congestion control<br> UDP (user data): Connectionless<br> * No guarantee, flow control, or congestion control | Segment  |
-| Network     | Moves transport-layer segment from one host to another.      | IP: Defines fields in the datagram and how end systems/routers act on these fields.<br>Routing protocols: Determines routes datagrams take. | Datagram |
+| Network     | Moves transport-layer segment from one host to another (e.g., machines that host the applications). | IP: Defines fields in the datagram and how end systems/routers act on these fields.<br>Routing protocols: Determines routes datagrams take. | Datagram |
 | Link        | Moves datagram from one node to the next node in the route.<br> (Datagram may be handled by different protocols at different links) | Ethernet, WiFi.                                              | Frame    |
 | Physical    | Moves individual bits in a frame from one node to the next.  | Depends on link medium (twisted copper write, fiber optics, etc) |          |
 
+<div style="text-align: center"><img src="./images/layer_example.png" width="800px" /></div>
+<div align="center">
+<sup></sup>
+</div>
