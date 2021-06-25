@@ -269,3 +269,23 @@ Each layer provides service by
 <div align="center">
 <sup></sup>
 </div>
+
+## Network Attacks
+
+**Botnet.** A network of devices compromised by malware.
+
+**Virus.** Malware that require some user interaction to infect the device.
+
+**Worm.** Malware that do not require user interaction to infect the device.
+
+**Denial-of-service (DoS) attacks.** Makes a network unusable by legitimate users.
+
+* Vulnerability attack: If the right sequence of packets is sent to a vulnerable application, the service can stop or the host can crash.
+* Bandwidth flooding: Attacker sends a deluge of bogus packets so that the target host can't receive legitimate packets.
+* Connection flooding: Attacker establishes a large number of bogus TCP connections at the target host so that the host stops accepting legitimate connections.
+
+**Distributed DoS (DDoS) attack.**  Blast target host from multiple compromised hosts in botnet.
+
+* Harder to detect and defend against than DoS attack from single host.
+
+**Packet sniffer.** A passive receiver that records a copy of every packet that flies by.
