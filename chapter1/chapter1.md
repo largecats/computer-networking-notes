@@ -289,3 +289,7 @@ Each layer provides service by
 * Harder to detect and defend against than DoS attack from single host.
 
 **Packet sniffer.** A passive receiver that records a copy of every packet that flies by.
+
+**IP spoofing.** Inject packets into the internet with a false source address (pose as another user).
+
+**End-point authentication.**  A mechanism that allows us to determine if a message originates from where we think it does.
