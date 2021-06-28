@@ -65,11 +65,24 @@
 **DSL (digital subscriber line).** Internet access from the same telco (telephone company) that provides wired local phone access.
 - Uses existing telephone line (twisted-pair copper wire).
 - Frequency-division multiplexing: Uses different frequency than telephone signal channel to transmit digital signals (a telephone call and an internet connection can share the DSL link at the same time).
+- Bandwidth
+  - Dedicated.
+  - Asymmetric: Downstream 12 Mbps and upstream 1.8 Mbps, or downstream 55 Mbps and upstream 15 Mbps.
+
+**Asymmetric access.** Downstream and upstream rates are different.
 
 **Cable.** Internet access from the same cable TV company that provides cable TV.
-- Uses Optical fiber, coaxial cable.
+
+- Uses Optical fiber, coaxial cable (hybrid fiber coax, or HFC).
 - Uses cable modem.
-- Shared broadcast medium.
+- Bandwidth
+  - Shared broadcast medium.
+  - Asymmetric: Downstream <= 42.8 Mbps, upstream <= 30.7 Mbps.
+
+<div style="text-align: center"><img src="./images/hfc.png" width="800px" /></div>
+<div align="center">
+<sup></sup>
+</div>
 
 **FTTH (fiber to the home).** Optical fiber path from the central office (CO) directly to the home.
 - Optical distribution from CO to home.
@@ -77,10 +90,20 @@
 - Split fiber: Many homes share fiber from CO, which then splits into different fiber.
     - Active optical network (switched Ethernet)
     - Passive optical network
+- Bandwidth
+    - Dedicated.
+    - 20 Mbps.
+
+<div style="text-align: center"><img src="./images/ftth.png" width="800px" /></div>
+<div align="center">
+<sup></sup>
+</div>
 
 **Dial-Up.** A home modem connects to ISP modem over a phone line.
 - Same model as DSL.
-- Very slow.
+- Bandwidth
+  - Dedicated.
+  - Very slow, 56kbps.
 
 **Satellite link.**
 
@@ -91,12 +114,21 @@
 **Ethernet.** Most prevalent LAN access technology.
 - Users use twisted-pair copper wire to connect to Ethernet switch, which is connected to a router, which connects to the ISP.
 
+<div style="text-align: center"><img src="./images/ethernet.png" width="800px" /></div>
+<div align="center">
+<sup></sup>
+</div>
+
 **Wireless LAN.** Wireless connection to LAN.
 - Users transmit/receive packets to/from an access point connected into the enterprise’s network (using wired Ethernet).
+- User needs to be within tens of meters from access point.
 
 **WiFi.** A Wireless LAN access based on certain IEEE technology.
 
 #### Wide-Area Wireless Access
+
+* Users transmit/receive packets to/from base station operated by cellular network provider.
+* User needs to be within tens of kilometers from base station.
 
 **3G/4G.** Third/fourth-generation packet-switched wide-area wireless access at > 1Mbps.
 
@@ -113,17 +145,24 @@
 - Wireless LAN
 - Digital satellite channel
 
-| Meida                    | Composition                      | Usage                 |
-|--------------------------|----------------------------------|-----------------------|
-| Twisted-pair copper wire |Two copper wires twisted to reduce electrical interference from other wires                                | Telephone network, LAN |
-| Coaxial cable            | Two concentric copper conductors | Cable TV              |
-Fiber optics                          |                    Conduct light pulses, each pulse is a bit|                       
-| Terrestrial radio channels | Electromagnetic spectrum | Short distance: Wireless keyboards, local-area: LAN, Wide-area: Cellular access 
-| Satellite radio channels | Links earth-based microwave ground stations | Geostationary satellites, Low-earth orbiting satellites |
+| Media                      | Composition                                                                 | Usage                                                                           |
+|----------------------------|-----------------------------------------------------------------------------|---------------------------------------------------------------------------------|
+| Twisted-pair copper wire   | Two copper wires twisted to reduce electrical interference from other wires | Telephone network, LAN                                                          |
+| Coaxial cable              | Two concentric copper conductors                                            | Cable TV                                                                        |
+| Fiber optics               | Conduct light pulses, each pulse is a bit                                   |                                                                                 |
+| Terrestrial radio channels | Electromagnetic spectrum                                                    | Short distance: Wireless keyboards, local-area: LAN, Wide-area: Cellular access |
+| Satellite radio channels   | Links earth-based microwave ground stations                                 | Geostationary satellites, Low-earth orbiting satellites                         |
 
 ## Network Core
 
 ### Packet Switching
+
+Resources are not reserved but used on demand.
+
+* Simpler, less costly to implement.
+* Better sharing of transmission capacity (no wasteful idle periods).
+* May have unpredictable end-to-end delays.
+* Trend.
 
 **Store-and-forward transmission.** The packet switch must receive the entire packet before it starts transmitting.
 
@@ -134,7 +173,7 @@ Fiber optics                          |                    Conduct light pulses,
 **Packet loss.** When an output queue is full, the arriving packet or one of the already-queued packet would be dropped.
 
 **IP address.** An end system’s address in the internet.
-$
+
 - Included in the packet’s header.
 - Hierarchical, like postal address.
 
@@ -143,11 +182,13 @@ $
 
 ### Circuit Switching
 
-Need to reserve resources for communication.
-- Telephone networks
-- Wasteful, but more stable
+Resources needed along a path (buffers, link transmission rate) are received for the duration of the communication session (like telephone lines).
+- Dedicated circuits may be idle ("wasted"). E.g., even if a user may be active only 10% of the time, the bandwidth must be reserved at all times.
+- More stable.
 
 **Frequency-division multiplexing (FDM).** Frequency spectrum of a link is divided up among circuits. Each circuit gets a frequency band.
+
+* Requires sophisticated analog hardware to shift signal into appropriate frequency bands.
 
 **Time-division multiplexing (TDM).** Time is divided into revolving frames of fixed duration. Each frame is divided into fixed number of slots. Each circuit gets a time slot in each frame.
 - E.g., 8000 frames/second, each slot has 8 bits, then transmission rate is 8000*8=64kbps.
@@ -155,6 +196,7 @@ Need to reserve resources for communication.
 ## Network of Networks
 
 **Access ISP.** Connect end systems into the Internet.
+
 - Wired or wireless
 - DSL, cable, FTTH, Wi-Fi, cellular.
 - Telephone/cable company, university, company
@@ -257,13 +299,13 @@ Each layer provides service by
 <div align="center">
 <sup></sup>
 </div>
-| Layer       | Description                                                  | Protocols                                                    | Packet   |
-| ----------- | ------------------------------------------------------------ | ------------------------------------------------------------ | -------- |
-| Application | Network application endpoints.                               | HTTP: Web document request and transfer<br>SMTP: Email transfer<br>FTP: File transfer<br>DNS (domain name system): Translate human readable internet address to 32-bit network address | Message  |
-| Transport   | Transports application-layer messages between application endpoints. | TCP (transmission control): Connection-oriented<br> * Guaranteed delivery of application-layer messages<br> * Flow control (sender/receiver speed matching)<br> * Congestion control<br> UDP (user data): Connectionless<br> * No guarantee, flow control, or congestion control | Segment  |
-| Network     | Moves transport-layer segment from one host to another (e.g., machines that host the applications). | IP: Defines fields in the datagram and how end systems/routers act on these fields.<br>Routing protocols: Determines routes datagrams take. | Datagram |
-| Link        | Moves datagram from one node to the next node in the route.<br> (Datagram may be handled by different protocols at different links) | Ethernet, WiFi.                                              | Frame    |
-| Physical    | Moves individual bits in a frame from one node to the next.  | Depends on link medium (twisted copper write, fiber optics, etc) |          |
+| Layer       | Description                                                                                                                         | Protocols                                                                                                                                                                                                                                                                        | Packet   |
+|-------------|-------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|
+| Application | Network application endpoints.                                                                                                      | HTTP: Web document request and transfer<br>SMTP: Email transfer<br>FTP: File transfer<br>DNS (domain name system): Translate human readable internet address to 32-bit network address                                                                                           | Message  |
+| Transport   | Transports application-layer messages between application endpoints.                                                                | TCP (transmission control): Connection-oriented<br> * Guaranteed delivery of application-layer messages<br> * Flow control (sender/receiver speed matching)<br> * Congestion control<br> UDP (user data): Connectionless<br> * No guarantee, flow control, or congestion control | Segment  |
+| Network     | Moves transport-layer segment from one host to another (e.g., machines that host the applications).                                 | IP: Defines fields in the datagram and how end systems/routers act on these fields.<br>Routing protocols: Determines routes datagrams take.                                                                                                                                      | Datagram |
+| Link        | Moves datagram from one node to the next node in the route.<br> (Datagram may be handled by different protocols at different links) | Ethernet, WiFi.                                                                                                                                                                                                                                                                  | Frame    |
+| Physical    | Moves individual bits in a frame from one node to the next.                                                                         | Depends on link medium (twisted copper write, fiber optics, etc)                                                                                                                                                                                                                 |          |
 
 <div style="text-align: center"><img src="./images/layer_example.png" width="800px" /></div>
 <div align="center">
