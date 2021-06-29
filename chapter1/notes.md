@@ -228,7 +228,7 @@ Resources needed along a path (buffers, link transmission rate) are received for
 
 * If $La/R>1$, queue grows.
 * If $La/R\leq 1$, queuing delay depends on whether traffic comes in bursts or is spread out evenly. 
-  * If $N$ packets arrive simultaneously every $(L/R)N$ seconds, then the average queuing delay is $0 + \frac{L}{R} + \frac{2L}{R} + \cdots + \frac{(n-1)L}{R} = \frac{n(n-1)}{2}\frac{L}{R}$ seconds.
+  * If $N$ packets arrive simultaneously every $(L/R)N$ seconds, then the average queuing delay is $0 + \frac{L}{R} + \frac{2L}{R} + \cdots + \frac{(N-1)L}{R} = \frac{N(N-1)}{2}\frac{L}{R}$ seconds.
 
 <div style="text-align: center"><img src="./images/average_queuing_delay_vs_traffic_intensity.png" width="600px" /></div>
 <div align="center">

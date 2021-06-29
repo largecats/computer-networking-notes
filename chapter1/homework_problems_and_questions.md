@@ -5,11 +5,11 @@
 ### Section 1.1
 
 1. A host is an end system.
-   
+
 Laptops, smartphones, tablets, TVs, game consoles, home appliances, watches, eye glasses, cars.
-   
+
 Yes.
-   
+
 2. "Protocol is commonly described as a set of international courtesy rules. These well-established and time-honored rules have made it easier for nations and people to live and work together. Part of protocol has always been the acknowledgment of the hierarchical standing of all present. Protocol rules are based on the principles of civility."
    
 3. "It’s important that everyone agree on what each and every protocol does, so that people can create systems and products that interoperate." - p31
@@ -67,14 +67,13 @@ Yes.
     1. Two. Even if each user is active only 20% of the time, 1Mpbs bandwidth must be reserved at all times.
 
     2. If two or fewer users transmit at the same time, the required bandwidth is <= 2Mbps. Since the available bandwidth of the shared link is 2Mbps, there will be no queuing delay before the link.
-   
+      
        If three users transmit at the same time, the required bandwidth is 3Mbps, which is more than the available bandwidth of 2Mbps., so there will be queuing delay.
 
     3. $0.2$.
     
     4. $0.2^3 = 0.008.$ The queue grows when all three users are transmitting.
    
-    
 14. To reduce payments to provider ISP.
 
     IXP is a meeting point where multiple ISPs can peer together, so it probably charges each ISP a fee lower than the cost to connect to a provider ISP.
@@ -116,23 +115,22 @@ Yes.
        \min\{R_1, R_2, R_3\} = 500 \text{kbps}.
        $$
        
-2. 
-       $$
+    2. $$
        \frac{4 \cdot 10^6 \text{byte} \cdot 8\text{bit/byte}}{500\cdot 10^3\text{bit/sec}} = 64\text{sec}.
        $$
-       
-    3. $100$ kbps.
+    
+     3. $100$ kbps.
 $$
        \frac{4 \cdot 10^6 \text{byte} \cdot 8\text{bit/byte}}{100\cdot 10^3\text{bit/sec}} = 320\text{sec}.
-   $$
-       
-    20. End system A creates packets by breaking the file into chunks and adding end system B's IP address to each chunk's header.
-    
-        The router uses a portion of the destination IP address to determine which link to forward the packet onto.
+$$
 
-        The destination IP address is hierarchical, just like postal address.
+20. End system A creates packets by breaking the file into chunks and adding end system B's IP address to each chunk's header.
 
-    21. 
+    The router uses a portion of the destination IP address to determine which link to forward the packet onto.
+
+    The destination IP address is hierarchical, just like postal address.
+
+21.  
 
 ### Section 1.5
 
@@ -258,25 +256,22 @@ $$
       d_{\text{prop}} = \frac{m}{s}\text{sec}.
       $$
       
-
    2. 
       $$
       d_{\text{trans}} = \frac{L}{R} \text{sec}.
       $$
       
-
    3. 
       $$
       \left(\frac{L}{R} + \frac{m}{s}\right) \text{sec}
       $$
       
-
    4. At the beginning of the link, just leaving host A.
-
+   
    5. In the link.
-
+   
    6. At host B.
-
+   
    7. 
       $$
       \begin{align*}
@@ -285,7 +280,7 @@ $$
       &\Rightarrow &m &\approx 536\text{km}.
       \end{align*}
       $$
-
+   
 7. Time it takes to generate a $56$-byte packet from analog (all bits in the packet need to be generated before it can be transmitted):
    $$
    \frac{56\text{byte}\cdot 8\text{bit/byte}}{64\cdot 10^3 \text{bit/sec}} = 7\text{msec}.
@@ -301,7 +296,6 @@ $$
    7 + 0.224 + 10 = 17.224\text{msec}.
    $$
    
-
 8. 
 
    1. 
@@ -309,20 +303,18 @@ $$
       \frac{3\cdot 10^6}{150\cdot 10^3} = 20.
       $$
       
-
    2. $0.1$.
-
+   
    3. 
       $$
       {120 \choose n} 0.1^n \cdot (1-0.1)^{120-n}.
       $$
       
-
    4. 
       $$
       1 - \sum_{k=0}^{20}{120\choose k}0.1^k\cdot 0.9^{120-k}.
       $$
-
+   
 9. 
 
    1. $$
@@ -378,4 +370,174 @@ $$
     \frac{L/R}{1-I} = \frac{L/R}{1-aL/R} = \frac{1/\mu}{1-a/\mu} = \frac{\mu}{\mu-a}.
     $$
 
-16. 
+16. $$
+    a = \frac{N}{d} = \frac{(10+1)\text{packet}}{0.01\text{sec}+1/100\text{sec}} = \frac{11\text{packet}}{0.02\text{sec}} = 550\text{packet/sec}.
+    $$
+
+17. 
+    
+    1. Suppose there are $N$ nodes.
+    
+    $$
+    d_{\text{end-end}} = \sum_{n=1}^N d_{n_{proc}} + d_{n_{trans}} + d_{n_{prop}},
+    $$
+    ​		where $d_{n_{trans}} = L/R_n$.
+    
+    2. 
+       $$
+       d_{\text{end-end}} = \sum_{n=1}^N d_{n_{proc}} + d_{n_{trans}} + d_{n_{prop}} + d_{n_{queue}}.
+       $$
+    
+18. 
+
+19. 
+
+20. $$
+    \min\{R_s, R_c, R/M\}.
+    $$
+
+21. If can only use one path, the maximum throughput is the maximum of the minimum link among all $M$ paths.
+    $$
+    \max\{\min\{R_{nm} | n=1,\ldots,N\} | m=1,\ldots,M \}
+    $$
+    If can use all $M$ paths, the maximum throughput is the sum of all paths' throughputs.
+    $$
+    \sum_{m=1}^M \min\{R_{nm}|n=1,\ldots,N\}
+    $$
+    
+22. Probability that a packet is received is $(1-p)^N$.
+
+    Probability that a packet is not received is $1 - (1-p)^N$, so average number of re-transmission is $1/(1-(1-p)^N)$.
+
+23. 
+
+    1. $L/R_s$ since the second packet queued at the first link.
+
+    2. Yes, the second packet will queue at the second link if the time it takes for second packet to arrive at the second link is less than the time it takes for the first packet to be transmitted by the second link, i.e.:
+       $$
+       \frac{L}{R_s} + \frac{L}{R_s} + d_{prop} < \frac{L}{R_s} + d_{prop} + \frac{L}{R_c}
+       $$
+       This is the same as $R_c < R_s$, so if $R_c<R_s$. the second packet must queue at the second link.
+       $$
+       \begin{align*}
+       \frac{L}{R_s} + \frac{L}{R_s} + d_{prop} + T &> \frac{L}{R_s} + d_{prop} + \frac{L}{R_c}\\
+       \frac{L}{R_s} + T &> \frac{L}{R_c}\\
+       T &> \frac{L}{R_c} - \frac{L}{R_s}.
+       \end{align*}
+       $$
+
+24. FedEx. Using the link will take:
+    $$
+    \frac{40\cdot 10^{12}\text{byte}\cdot 8\text{bit/byte}}{100\cdot 10^6\text{bit/sec}} = 3.2\cdot 10^6\text{sec} \approx 37\text{days}.
+    $$
+    
+25. 
+
+    1. $$
+       R\cdot d_{prop} = 2\cdot 10^6\text{bit/sec} \cdot \frac{20000\cdot 10^3\text{m}}{2.5\cdot 10^8\text{m/sec}} = 1.6\cdot 10^5\text{bit}.
+       $$
+
+    2. The number of bits in the link can be calculated as a "band area" where the width is the number of bits transmitted per second (bandwidth), and the length is the length of time a bit can stay in the link. This is exactly the bandwidth-delay product.
+
+    3. Maximum number of bits that can be in the link at any given time.
+
+    4. The width of a bit is the length of link / the number of bits in the link:
+       $$
+       \frac{20000\cdot 10^3\text{m}}{1.6\cdot 10^5\text{bit}} = 125\text{m/bit}
+       $$
+       Longer than a football field.
+
+    5. $$
+       \frac{m}{R\cdot m/s} = \frac{s}{R}.
+       $$
+
+26. $$
+    \frac{s}{R} = m \Rightarrow R = \frac{s}{m} = \frac{2.5\cdot 10^8\text{m/sec}}{20000\cdot 10^3\text{m}} = 12.5\text{bps}.
+    $$
+
+27. 
+
+    1. 
+
+    $$
+    R\cdot d_{prop} = 10^9\text{bit/sec} \cdot \frac{20000\cdot 10^3\text{m}}{2.5\cdot 10^8\text{m/sec}} = 8\cdot 10^7\text{bit}.
+    $$
+
+    2. $800000$ bits (minimum of maximum number of bits that can be in the link and the total number of bits)
+
+    3. $$
+       \frac{20000\cdot 10^3\text{m}}{800000\text{bit}} = 25\text{m/bit}.
+       $$
+
+28. 
+
+    1. 
+
+    $$
+    d_{trans} + d_{prop} = \frac{800000\text{bit}}{2\cdot 10^6\text{bit/sec}} + \frac{20000\cdot 10^3\text{m}}{2.5\cdot 10^8\text{m/sec}} = 0.48\text{sec}.
+    $$
+
+    2. $$
+       20\cdot \left(\frac{40000\text{bit}}{2\cdot 10^6\text{bit/sec}} + \frac{20000\cdot 10^3\text{m}}{2.5\cdot 10^8\text{m/sec}}\right) = 2\text{sec}.
+       $$
+
+    3. It takes longer to break down a file into segments and send them because each segment adds its propagation delay.
+
+29. 
+
+    1. According to p48, geostationary satellites are 36000km above earth. So propagation delay is
+       $$
+       \frac{36000\cdot 10^3\text{m}}{2.4\cdot 10^8\text{m/sec}} = 0.15\text{sec}.
+       $$
+
+    2. $$
+       10\cdot 10^6\text{bit/sec} \cdot 0.15\text{sec} = 1.5\cdot 10^6\text{bit}.
+       $$
+
+    3. The image need to take 1min to be transmitted:
+       $$
+       10\cdot 10^6\text{bit/sec}\cdot 60\text{sec} = 6\cdot 10^8\text{bit}.
+       $$
+
+30.  
+
+31.  
+
+    1. Time it takes for the message to reach the first packet switch is
+       $$
+       \frac{8\cdot 10^6\text{bit}}{2\cdot 10^6\text{bit/sec}} = 4\text{sec}.
+       $$
+       Time it takes for the message to reach the destination is $4\cdot 3 = 12\text{sec}$ (source to first packet switch, first packet switch to second packet switch, second packet switch to destination - each takes $4$ seconds).
+
+    2. Time it takes for the first packet to reach the first switch is
+       $$
+       \frac{10000\text{bit}}{2\cdot 10^6\text{bit/sec}} = 0.005\text{sec}.
+       $$
+       Time it takes for the second packet to reach the first switch is $0.005\text{sec}\cdot 2 = 0.01\text{sec}$.
+
+    3. Total delay of sending $P$ packets across $N$ links:
+       $$
+       (N+P-1)\frac{L}{R} = (3+800-1)\frac{10000\text{bit}}{2\cdot 10^6\text{bit/sec}} = 4.01\text{sec}.
+       $$
+       This is much less than the $12$sec delay without segmentation.
+       
+    4. **Without message segmentation:**
+
+       1. **if bit errors are not tolerated, if there is a single bit error, the whole message has to be retransmitted (rather than a single packet).  **
+       2. **huge packets (containing HD videos, for example) are sent into the network. Routers have to accommodate these huge packets. Smaller packets have to queue behind enormous packets and suffer unfair delays.**
+    
+    5. **Drawbacks of message segmentation:**
+       1. **Packets have to be put in sequence at the destination.**
+       2. **Message segmentation results in many smaller packets. Since header size is usually the same for all packets regardless of their size, with message segmentation the total amount of header bytes is more.**
+    
+32.  
+
+33. Delay of moving $N$ packets across $P$ links is
+    $$
+    (N+P-1)\frac{L}{R} = \left(3+\frac{F}{S}-1\right)\cdot \left(\frac{80+S}{R}\right) = \left(\frac{F}{S}+2\right)\cdot \frac{80+S}{R}.
+    $$
+
+34. **The circuit-switched telephone networks and the Internet are connected together at "gateways". When a Skype user (connected to the Internet) calls an ordinary telephone, a circuit is established between a gateway and the telephone user over the circuit switched network. The skype user's voice is sent in packets over the Internet to the gateway. At the gateway, the voice signal is reconstructed and then sent over the circuit. In the other direction, the voice signal is sent over the circuit switched network to the gateway. The gateway packetizes the voice signal and sends the voice packets to the Skype user.**
+
+
+
