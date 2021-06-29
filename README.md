@@ -1,2 +1,2 @@
-# computer-systems
+# computer-networking-notes
 Book notes.
