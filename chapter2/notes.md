@@ -41,3 +41,19 @@ A network application consists of pairs of (client and server) processes that se
 
 **Server process.** The process that waits to be contacted.
 
+**Socket.** Software interface (API) between process and computer network.
+
+<div style="text-align: center"><img src="./images/socket.png" width="600px" /></div>
+<div align="center">
+</div>
+
+To send message to a process, we need 
+
+1. the IP address of the destination host, and 
+2. a port number that identifies the receiving process.
+
+**IP address.** A 32-bit quantity that uniquely identifies the host.
+
+**Port number.** Identifier for the receiving process on the destination host.
+
+* E.g., web server is identified by port number 80, mail server is identified by port number 25.
